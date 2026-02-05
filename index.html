@@ -2,39 +2,104 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Alfaiataria sob medida em estilo clássico para homens exigentes. Agende seu atendimento com Delmiro & Silva.">
-  <title>Delmiro & Silva | Alfaiataria Sob Medida</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
+  <meta name="description" content="Alfaiataria sob medida premium para homens exigentes. Camisas e ternos personalizados com excelência artesanal. Agende sua consulta na Delmiro & Silva.">
+  <meta name="keywords" content="alfaiataria sob medida, terno personalizado, camisa sob medida, alfaiate premium, moda masculina clássica, roupa social sob medida">
+  <meta name="author" content="Delmiro & Silva Alfaiataria">
   
-  <!-- Preconnect para otimização de performance -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Delmiro & Silva | Elegância Sob Medida">
+  <meta property="og:description" content="Alfaiataria artesanal premium para homens que valorizam excelência e estilo único.">
+  <meta property="og:image" content="https://www.delmiroesilva.com/images/social-preview.jpg">
+  <meta property="og:url" content="https://www.delmiroesilva.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Delmiro & Silva | Elegância Sob Medida">
+  <meta name="twitter:description" content="Alfaiataria artesanal premium para homens que valorizam excelência e estilo único.">
+  
+  <title>Delmiro & Silva | Alfaiataria Sob Medida Premium</title>
+  
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  
-  <!-- AOS (Animate on Scroll) -->
+  <!-- AOS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   
-  <!-- Bootstrap Icons -->
+  <!-- Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Estilos Customizados -->
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Delmiro & Silva",
+    "description": "Alfaiataria sob medida premium com tradição artesanal",
+    "url": "https://www.delmiroesilva.com",
+    "telephone": "+55-11-1234-5678",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua das Acácias, 123",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01414-001",
+      "addressCountry": "BR"
+    },
+    "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-13:00"],
+    "priceRange": "$$$$"
+  }
+  </script>
+
   <style>
+    /* ===== SUAS CORES ROXAS MANTIDAS ===== */
     :root {
       --roxo-principal: #8a4baf;
       --roxo-secundario: #a67edb;
       --roxo-claro: #d3bce7;
+      --roxo-suave: rgba(138, 75, 175, 0.1);
       --cinza-escuro: #1e1e1e;
       --cinza-medio: #333;
       --cinza-claro: #f8f9fa;
       --branco: #ffffff;
       --sombra: rgba(0, 0, 0, 0.1);
+      --sombra-forte: rgba(0, 0, 0, 0.15);
+      
+      /* Cores otimizadas para contraste e acessibilidade */
+      --roxo-escuro: #6d3a8c;
+      --roxo-vibrante: #9b5de6;
+      --roxo-pastel: #e6d4f7;
+      
+      /* Espaçamento consistente */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 2rem;
+      --spacing-lg: 3rem;
+      --spacing-xl: 5rem;
+      
+      /* Bordas */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      
+      /* Transições */
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Containers */
+      --container-sm: 100%;
+      --container-md: 720px;
+      --container-lg: 960px;
+      --container-xl: 1200px;
     }
 
+    /* ===== RESET E BASE ===== */
     * {
       margin: 0;
       padding: 0;
@@ -43,314 +108,663 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 14px;
+      }
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fdfbff;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--cinza-medio);
-      line-height: 1.6;
+      background-color: #fdfbff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    /* Navbar */
-    .navbar {
-      background-color: var(--cinza-escuro);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      padding: 1rem 0;
-      transition: all 0.4s ease;
+    /* ===== TIPOGRAFIA APERFEIÇOADA ===== */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: var(--spacing-sm);
+      color: var(--cinza-escuro);
     }
 
-    .navbar.scrolled {
-      padding: 0.6rem 0;
-      background-color: rgba(30, 30, 30, 0.95);
-      backdrop-filter: blur(10px);
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      letter-spacing: -0.02em;
     }
 
-    .navbar-brand {
-      font-weight: 700;
-      color: var(--roxo-claro) !important;
-      font-size: 1.5rem;
-      letter-spacing: 0.5px;
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -0.01em;
+      color: var(--roxo-principal);
     }
 
-    .navbar-nav .nav-link {
-      color: var(--branco) !important;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      margin: 0 0.2rem;
-      border-radius: 4px;
-      transition: all 0.3s ease;
+    h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--cinza-escuro);
+    }
+
+    p {
+      margin-bottom: var(--spacing-md);
+      color: var(--cinza-medio);
+      font-size: 1.125rem;
+    }
+
+    .lead {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      color: var(--cinza-medio);
+      font-weight: 300;
+      opacity: 0.9;
+    }
+
+    small {
+      font-size: 0.875rem;
+      color: var(--cinza-medio);
+      opacity: 0.8;
+    }
+
+    a {
+      color: var(--roxo-principal);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--roxo-secundario);
+    }
+
+    /* ===== LAYUTOS E CONTÊINERES ===== */
+    .container {
+      width: 100%;
+      max-width: var(--container-xl);
+      margin: 0 auto;
+      padding: 0 var(--spacing-md);
+    }
+
+    @media (max-width: 1200px) {
+      .container {
+        max-width: var(--container-lg);
+        padding: 0 var(--spacing-sm);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: var(--container-sm);
+        padding: 0 var(--spacing-sm);
+      }
+    }
+
+    .section {
+      padding: var(--spacing-xl) 0;
       position: relative;
     }
 
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      color: var(--roxo-claro) !important;
-      background-color: rgba(211, 188, 231, 0.1);
+    @media (max-width: 768px) {
+      .section {
+        padding: var(--spacing-lg) 0;
+      }
     }
 
-    .navbar-nav .nav-link::after {
+    .bg-light {
+      background-color: var(--cinza-claro);
+    }
+
+    .bg-roxo-suave {
+      background-color: var(--roxo-suave);
+    }
+
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+
+    /* ===== SISTEMA DE GRID APERFEIÇOADO ===== */
+    .grid {
+      display: grid;
+      gap: var(--spacing-md);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 992px) {
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== COMPONENTES REVISADOS ===== */
+
+    /* 1. NAVBAR ELEGANTE */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(138, 75, 175, 0.1);
+      z-index: 1000;
+      transition: all var(--transition);
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 4px 20px rgba(138, 75, 175, 0.1);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      max-width: var(--container-xl);
+      margin: 0 auto;
+      padding: 1.25rem var(--spacing-md);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--roxo-principal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: var(--spacing-md);
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--cinza-escuro);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      position: relative;
+      transition: all var(--transition);
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+    }
+
+    .nav-link::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       width: 0;
       height: 2px;
-      background: var(--roxo-claro);
-      transition: all 0.3s ease;
+      background: linear-gradient(to right, var(--roxo-principal), var(--roxo-secundario));
+      transition: width 0.3s ease, left 0.3s ease;
       transform: translateX(-50%);
     }
 
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link.active::after {
-      width: 70%;
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--roxo-principal);
+      background-color: var(--roxo-suave);
     }
 
-    .navbar-toggler {
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 80%;
+      left: 50%;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
       border: none;
+      cursor: pointer;
       padding: 0.5rem;
-      width: 45px;
-      height: 45px;
-      display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.3s ease;
+      gap: 4px;
     }
 
-    .navbar-toggler:focus {
-      box-shadow: 0 0 0 2px rgba(211, 188, 231, 0.3);
-    }
-
-    .navbar-toggler span {
+    .nav-toggle span {
       display: block;
+      width: 24px;
       height: 2px;
-      width: 25px;
-      background-color: var(--branco);
-      margin: 3px 0;
-      transition: all 0.3s ease;
+      background: var(--roxo-principal);
+      transition: var(--transition);
       border-radius: 2px;
     }
 
-    .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Hero Section */
+    /* 2. HERO IMPACTANTE */
     .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                  url('images/hero-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, rgba(138, 75, 175, 0.85), rgba(166, 126, 219, 0.75)), 
+                  url('https://images.unsplash.com/photo-1598808503746-f34c53b9323b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
       color: var(--branco);
-      overflow: hidden;
+      padding: 6rem var(--spacing-md) var(--spacing-xl);
+      position: relative;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-
-    /* Botões */
-    .btn-roxo {
-      background: linear-gradient(45deg, var(--roxo-principal), var(--roxo-secundario));
       color: var(--branco);
-      border: none;
-      border-radius: 50px;
-      padding: 0.875rem 2.5rem;
-      font-size: 1.1rem;
+      font-size: clamp(2.75rem, 6vw, 4rem);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.1;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero .lead {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      margin-bottom: var(--spacing-lg);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+    }
+
+    /* 3. BOTÕES APERFEIÇOADOS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
       font-weight: 600;
-      box-shadow: 0 6px 20px rgba(166, 126, 219, 0.3);
-      transition: all 0.4s ease;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
       position: relative;
       overflow: hidden;
       z-index: 1;
     }
 
-    .btn-roxo::before {
+    .btn-primary {
+      background: linear-gradient(135deg, var(--roxo-principal), var(--roxo-secundario));
+      color: var(--branco);
+      box-shadow: 0 6px 20px rgba(138, 75, 175, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(138, 75, 175, 0.4);
+    }
+
+    .btn-primary::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(45deg, var(--roxo-secundario), var(--roxo-principal));
+      background: linear-gradient(135deg, var(--roxo-secundario), var(--roxo-principal));
       transition: all 0.4s ease;
       z-index: -1;
     }
 
-    .btn-roxo:hover::before {
+    .btn-primary:hover::before {
       left: 0;
     }
 
-    .btn-roxo:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(166, 126, 219, 0.4);
-    }
-
-    /* Seções */
-    section {
-      padding: 5rem 0;
-    }
-
-    .section-title {
+    .btn-outline {
+      background: transparent;
       color: var(--roxo-principal);
-      font-weight: 700;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
+      border: 2px solid var(--roxo-principal);
     }
 
-    .section-title::after {
+    .btn-outline:hover {
+      background: var(--roxo-principal);
+      color: var(--branco);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(138, 75, 175, 0.2);
+    }
+
+    /* 4. CARDS ELEGANTES */
+    .card {
+      background: var(--branco);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 10px 30px var(--sombra);
+      transition: all var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(138, 75, 175, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(138, 75, 175, 0.15);
+    }
+
+    .card::before {
       content: '';
       position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--roxo-principal);
-      border-radius: 2px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, var(--roxo-principal), var(--roxo-secundario));
     }
 
-    .bg-light {
-      background-color: var(--cinza-claro) !important;
+    .card-image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
     }
 
-    /* Cards e Steps */
-    .card, .step {
-      background: var(--branco);
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px var(--sombra);
-      transition: all 0.3s ease;
-      height: 100%;
-      padding: 2rem;
+    .card:hover .card-image {
+      transform: scale(1.05);
     }
 
-    .card:hover, .step:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    .card-content {
+      padding: var(--spacing-md);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
-    .step h4 {
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-sm);
       color: var(--roxo-principal);
-      font-weight: 600;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
+    }
+
+    /* 5. PROCESSO VISUAL */
+    .process {
+      position: relative;
+    }
+
+    .process::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background: linear-gradient(to right, var(--roxo-claro), var(--roxo-secundario), var(--roxo-claro));
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      text-align: center;
+      padding: 0 var(--spacing-sm);
+      z-index: 1;
     }
 
     .step-number {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: var(--roxo-claro);
-      color: var(--roxo-principal);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--roxo-principal), var(--roxo-secundario));
+      color: var(--branco);
       border-radius: 50%;
-      text-align: center;
-      line-height: 40px;
       font-weight: 700;
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      margin-bottom: var(--spacing-md);
+      box-shadow: 0 6px 20px rgba(138, 75, 175, 0.3);
+      position: relative;
+      z-index: 2;
     }
 
-    /* Serviços */
-    .service-icon {
-      font-size: 3rem;
-      color: var(--roxo-principal);
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
+    /* 6. DEPOIMENTOS REFINADOS */
+    .testimonial {
+      background: var(--branco);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+      position: relative;
+      border: 1px solid rgba(138, 75, 175, 0.1);
+      box-shadow: 0 8px 25px rgba(138, 75, 175, 0.08);
     }
 
-    .service-card:hover .service-icon {
-      transform: scale(1.1);
-      color: var(--roxo-secundario);
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 5rem;
+      color: var(--roxo-claro);
+      font-family: 'Playfair Display', serif;
+      line-height: 1;
+      opacity: 0.5;
     }
 
-    /* Formulário */
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-sm);
+      border-top: 1px solid rgba(138, 75, 175, 0.1);
+    }
+
+    .testimonial-author img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--roxo-claro);
+    }
+
+    /* 7. FORMULÁRIO PROFISSIONAL */
+    .form-group {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--cinza-medio);
+    }
+
     .form-control {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 0.875rem 1rem;
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid var(--roxo-claro);
+      border-radius: var(--radius-md);
+      font-family: inherit;
       font-size: 1rem;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
+      background: var(--branco);
+      color: var(--cinza-medio);
     }
 
     .form-control:focus {
-      border-color: var(--roxo-claro);
-      box-shadow: 0 0 0 0.25rem rgba(166, 126, 219, 0.25);
+      outline: none;
+      border-color: var(--roxo-principal);
+      box-shadow: 0 0 0 3px rgba(138, 75, 175, 0.15);
     }
 
-    /* Footer */
-    footer {
-      background-color: var(--cinza-escuro);
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* 8. FOOTER COMPLETO */
+    .footer {
+      background: var(--cinza-escuro);
       color: var(--branco);
-      padding: 2.5rem 0;
+      padding: var(--spacing-xl) 0 var(--spacing-md);
     }
 
-    footer p {
-      margin: 0;
-      opacity: 0.8;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
     }
 
-    /* WhatsApp Button */
-    .whatsapp-float {
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-title {
+      color: var(--branco);
+      font-size: 1.25rem;
+      margin-bottom: var(--spacing-md);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--roxo-claro);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--branco);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: var(--spacing-md);
+      border-top: 1px solid rgba(211, 188, 231, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+    }
+
+    /* 9. ESTATÍSTICAS VISUAIS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-lg);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .stats {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--roxo-principal);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--roxo-principal), var(--roxo-secundario));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--cinza-medio);
+      font-weight: 500;
+    }
+
+    /* 10. BOTÃO WHATSAPP */
+    .whatsapp-btn {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      border-radius: 50%;
+      bottom: 2rem;
+      right: 2rem;
       width: 60px;
       height: 60px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
+      color: var(--branco);
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+      transition: all var(--transition);
+      z-index: 999;
+      animation: pulse-whatsapp 2s infinite;
     }
 
-    .whatsapp-float:hover {
+    .whatsapp-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
       animation: none;
     }
 
-    .whatsapp-float img {
-      width: 35px;
-      height: 35px;
+    .whatsapp-btn i {
+      font-size: 1.75rem;
     }
 
-    @keyframes pulse {
+    @keyframes pulse-whatsapp {
       0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
       }
@@ -362,405 +776,522 @@
       }
     }
 
-    /* Imagens */
-    .img-fluid {
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      transition: all 0.4s ease;
-    }
-
-    .img-fluid:hover {
-      transform: scale(1.02);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Responsividade */
+    /* ===== RESPONSIVIDADE COMPLETA ===== */
     @media (max-width: 992px) {
-      .hero h1 {
-        font-size: 2.8rem;
+      .nav-toggle {
+        display: flex;
       }
-      
-      section {
-        padding: 4rem 0;
+
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        box-shadow: 0 10px 30px rgba(138, 75, 175, 0.15);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition);
+        border-bottom: 1px solid rgba(138, 75, 175, 0.1);
+      }
+
+      .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      .hero {
+        padding-top: 5rem;
+        min-height: 80vh;
+      }
+
+      .btn {
+        padding: 0.875rem 2rem;
+      }
+
+      .process::before {
+        display: none;
       }
     }
 
     @media (max-width: 768px) {
+      .section {
+        padding: var(--spacing-lg) 0;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .lead {
+        font-size: 1.25rem;
+      }
+
+      .whatsapp-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 56px;
+        height: 56px;
+      }
+
+      .step {
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 var(--spacing-sm);
+      }
+
       .hero {
-        min-height: 500px;
-        height: 80vh;
+        padding: 4rem var(--spacing-sm) var(--spacing-lg);
       }
 
       .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
 
-      .hero p {
-        font-size: 1.1rem;
+      .btn {
+        width: 100%;
+        justify-content: center;
       }
 
-      .navbar-nav {
-        padding-top: 1rem;
-      }
-
-      .navbar-nav .nav-link {
-        padding: 0.75rem 0;
-        margin: 0.2rem 0;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .whatsapp-float img {
-        width: 30px;
-        height: 30px;
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        gap: var(--spacing-sm);
       }
     }
 
-    @media (max-width: 576px) {
-      .hero h1 {
-        font-size: 1.8rem;
+    /* ===== ANIMAÇÕES E EFETOS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .btn-roxo {
-        padding: 0.75rem 2rem;
-        font-size: 1rem;
-      }
-
-      section {
-        padding: 3rem 0;
-      }
-
-      .step, .card {
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    /* Animações de entrada */
-    [data-aos] {
+    .animate-fadeInUp {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* ===== ESTADOS DE CARREGAMENTO ===== */
+    .loading {
+      opacity: 0.6;
       pointer-events: none;
     }
 
-    [data-aos].aos-animate {
-      pointer-events: auto;
+    .spinner {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: var(--branco);
+      animation: spin 0.6s linear infinite;
     }
 
-    /* Loader para imagens */
-    .img-loading {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
-    @keyframes loading {
-      0% {
-        background-position: 200% 0;
+    /* ===== CLASSES UTILITÁRIAS ===== */
+    .mb-0 { margin-bottom: 0; }
+    .mb-1 { margin-bottom: var(--spacing-xs); }
+    .mb-2 { margin-bottom: var(--spacing-sm); }
+    .mb-3 { margin-bottom: var(--spacing-md); }
+    .mb-4 { margin-bottom: var(--spacing-lg); }
+    .mb-5 { margin-bottom: var(--spacing-xl); }
+
+    .mt-0 { margin-top: 0; }
+    .mt-1 { margin-top: var(--spacing-xs); }
+    .mt-2 { margin-top: var(--spacing-sm); }
+    .mt-3 { margin-top: var(--spacing-md); }
+    .mt-4 { margin-top: var(--spacing-lg); }
+    .mt-5 { margin-top: var(--spacing-xl); }
+
+    .py-3 { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+    .py-4 { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+    .py-5 { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+
+    .d-flex { display: flex; }
+    .d-block { display: block; }
+    .d-grid { display: grid; }
+    .d-none { display: none; }
+
+    .align-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+
+    .gap-1 { gap: var(--spacing-xs); }
+    .gap-2 { gap: var(--spacing-sm); }
+    .gap-3 { gap: var(--spacing-md); }
+    .gap-4 { gap: var(--spacing-lg); }
+
+    .text-roxo { color: var(--roxo-principal); }
+    .text-roxo-claro { color: var(--roxo-claro); }
+    .text-branco { color: var(--branco); }
+    .text-cinza { color: var(--cinza-medio); }
+
+    .w-100 { width: 100%; }
+
+    /* ===== ESTILOS PARA IMPRESSÃO ===== */
+    @media print {
+      .navbar,
+      .whatsapp-btn,
+      .footer,
+      .btn {
+        display: none;
       }
-      100% {
-        background-position: -200% 0;
+
+      .hero {
+        background: none !important;
+        color: #000 !important;
+        min-height: auto;
+        padding: 2rem 0;
+      }
+
+      .hero h1 {
+        color: #000 !important;
+      }
+
+      .section {
+        padding: 1rem 0 !important;
+        page-break-inside: avoid;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#home">Delmiro & Silva</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <!-- Navigation -->
+  <nav class="navbar" aria-label="Navegação principal">
+    <div class="navbar-container">
+      <a href="#home" class="logo">Delmiro & Silva</a>
+      
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#camisa-sob-medida">Camisa Sob Medida</a></li>
-          <li class="nav-item"><a class="nav-link" href="#feito-para-voce">Feito Para Você</a></li>
-          <li class="nav-item"><a class="nav-link" href="#passo-a-passo">Processo</a></li>
-          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
-          <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-        </ul>
-      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Início</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre</a></li>
+        <li><a href="#servicos" class="nav-link">Serviços</a></li>
+        <li><a href="#processo" class="nav-link">Processo</a></li>
+        <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+        <li><a href="#contato" class="nav-link">Contato</a></li>
+        <li><a href="#agendar" class="btn btn-outline" style="padding: 0.5rem 1.5rem;">Agendar Consulta</a></li>
+      </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-      <h1>Elegância Sob Medida</h1>
-      <p class="lead">Roupas feitas à mão para homens que valorizam qualidade, conforto e estilo único.</p>
-      <a href="#contato" class="btn btn-roxo mt-3">Agende um Atendimento</a>
-    </div>
-  </section>
-
-  <!-- Sobre Nós -->
-  <section class="bg-light py-5" id="sobre">
-    <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Sobre Nós</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
-          <img src="images/alfaiate.jpg" class="img-fluid" alt="Alfaiate experiente costurando terno sob medida" 
-               loading="lazy">
-        </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-          <h3 class="mb-4">Alfaiataria com Elegância e Tradição</h3>
-          <p class="mb-4">
-            Com mais de 20 anos de tradição, a <strong>Delmiro & Silva</strong> é referência em alfaiataria personalizada. 
-            Unimos elegância, conforto e qualidade em cada peça feita sob medida, garantindo perfeição em cada detalhe.
-          </p>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                <span>Atendimento Personalizado</span>
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                <span>Tecidos de Alta Qualidade</span>
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                <span>Acabamento Impecável</span>
-              </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <div class="d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                <span>Garantia de Satisfação</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1 class="animate-fadeInUp">Excelência Artesanal em Cada Medida</h1>
+      <p class="lead">Alfaiataria sob medida para homens que valorizam conforto, estilo atemporal e perfeição em cada detalhe.</p>
+      <div class="d-flex gap-2 justify-center flex-wrap">
+        <a href="#contato" class="btn btn-primary">
+          <i class="bi bi-calendar-check"></i>
+          Agendar Consulta
+        </a>
+        <a href="#servicos" class="btn btn-outline">
+          <i class="bi bi-scissors"></i>
+          Ver Serviços
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Camisa Sob Medida -->
-  <section class="py-5" id="camisa-sob-medida">
+  <!-- Sobre -->
+  <section class="section" id="sobre">
     <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Camisa Sob Medida</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0" data-aos="fade-left">
-          <img src="images/sob-medida3.jpg" class="img-fluid" alt="Camisa Sob Medida" loading="lazy">
-        </div>
-        <div class="col-lg-6 order-lg-0" data-aos="fade-right">
-          <h3 class="mb-4">Sua Peça com Estilo Único</h3>
-          <p class="mb-4">
-            Camisas e ternos sob medida com ajuste perfeito, utilizando os melhores tecidos do mercado. 
-            Personalize cada detalhe: colarinho, punhos, botões e muito mais.
-          </p>
-          <ul class="list-unstyled mb-4">
-            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> Mais de 200 tecidos premium</li>
-            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> 15 modelos de colarinho</li>
-            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> Botões personalizados</li>
-            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> Monograma gratuito</li>
-          </ul>
-          <a href="#contato" class="btn btn-roxo" style="width: 100%;">Agende uma Consulta</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feito Para Você -->
-  <section class="bg-light py-5" id="feito-para-voce">
-    <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Feito Para Você</h2>
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-          <img src="images/feito-pra-voce.jpg" class="img-fluid" alt="Roupa feita sob medida" loading="lazy">
-        </div>
-        <div class="col-lg-6" data-aos="fade-left">
-          <h3 class="mb-4">Seu Estilo, Nossa Prioridade</h3>
-          <p class="mb-4">
-            Cada peça é cuidadosamente confeccionada para atender suas necessidades e expressar sua personalidade. 
-            Do esboço inicial ao produto final, garantimos excelência em cada etapa.
-          </p>
-          <div class="row text-center mb-4">
-            <div class="col-4">
-              <div class="display-6 fw-bold text-roxo">100%</div>
-              <small>Sob Medida</small>
+      <div class="grid grid-2 align-center gap-4">
+        <div data-aos="fade-right">
+          <h2>Tradição e Inovação em Alfaiataria</h2>
+          <p class="lead">Desde 1985, unimos técnicas artesanais tradicionais com design contemporâneo para criar peças únicas que refletem sua personalidade.</p>
+          <p>Cada peça é desenvolvida com atenção meticulosa aos detalhes, utilizando os melhores tecidos internacionais e um processo de confecção que respeita o tempo da qualidade.</p>
+          
+          <div class="stats mt-4">
+            <div class="stat">
+              <div class="stat-number">38+</div>
+              <div class="stat-label">Anos de Experiência</div>
             </div>
-            <div class="col-4">
-              <div class="display-6 fw-bold text-roxo">20+</div>
-              <small>Anos de Experiência</small>
+            <div class="stat">
+              <div class="stat-number">5.200+</div>
+              <div class="stat-label">Clientes Atendidos</div>
             </div>
-            <div class="col-4">
-              <div class="display-6 fw-bold text-roxo">5000+</div>
-              <small>Clientes Satisfeitos</small>
+            <div class="stat">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Sob Medida</div>
             </div>
           </div>
-          <a href="#contato" class="btn btn-roxo" style="width: 100%;">Agende seu Atendimento</a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Processo -->
-  <section class="py-5" id="passo-a-passo">
-    <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Como Funciona</h2>
-      <div class="row">
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="step text-center">
-            <div class="step-number">1</div>
-            <h4>Consulta Inicial</h4>
-            <p>Agende uma consulta para discutir suas preferências, tipo de evento e estilo desejado. 
-               Nossos especialistas irão ajudá-lo a escolher o tecido e modelo ideal.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="step text-center">
-            <div class="step-number">2</div>
-            <h4>Medição e Ajustes</h4>
-            <p>Realizamos a medição detalhada do seu corpo com mais de 30 medidas para garantir o ajuste perfeito. 
-               Discutimos todos os detalhes personalizados durante esta etapa.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="step text-center">
-            <div class="step-number">3</div>
-            <h4>Confeção Personalizada</h4>
-            <p>Após a medição, iniciamos a confeção da sua peça sob medida. 
-               Oferecemos um ajuste de prova antes da finalização para garantir total satisfação.</p>
-          </div>
+        
+        <div data-aos="fade-left">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+               alt="Alfaiate experiente trabalhando em terno sob medida" 
+               class="card-image" 
+               style="border-radius: var(--radius-lg); height: auto;">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Serviços -->
-  <section class="bg-light py-5" id="servicos">
+  <section class="section bg-light" id="servicos">
     <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Nossos Serviços</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card text-center service-card h-100">
-            <i class="bi bi-suit-club service-icon"></i>
-            <h5>Trajes Sociais</h5>
-            <p>Costura sob medida para eventos formais, casamentos, formaturas e ocasiões especiais. 
-               Perfeição em cada detalhe para sua celebração.</p>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2>Nossos Serviços Premium</h2>
+        <p class="lead" style="max-width: 600px; margin: 0 auto;">Oferecemos soluções completas de alfaiataria personalizada para cada ocasião.</p>
+      </div>
+      
+      <div class="grid grid-3 gap-3">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <img src="images/clangs-suit-2688315_1280.jpg" 
+               alt="Terno social sob medida" 
+               class="card-image">
+          <div class="card-content">
+            <h3 class="card-title">Trajes Sociais</h3>
+            <p>Ternos e smokings sob medida para eventos formais, casamentos e ocasiões especiais.</p>
+            <ul style="padding-left: 1.25rem; margin-top: auto; color: var(--cinza-medio);">
+              <li>Mais de 500 tecidos premium</li>
+              <li>Acabamento manual</li>
+              <li>Garantia de ajuste perfeito</li>
+            </ul>
           </div>
         </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card text-center service-card h-100">
-            <i class="bi bi-pencil-square service-icon"></i>
-            <h5>Reformas e Ajustes</h5>
-            <p>Serviço especializado de ajuste e personalização de roupas. 
-               Renove suas peças favoritas com nosso trabalho de alta qualidade.</p>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+               alt="Camisas personalizadas" 
+               class="card-image">
+          <div class="card-content">
+            <h3 class="card-title">Camisas Personalizadas</h3>
+            <p>Camisas sob medida com personalização completa de colarinho, punhos, botões e monograma.</p>
+            <ul style="padding-left: 1.25rem; margin-top: auto; color: var(--cinza-medio);">
+              <li>18 modelos de colarinho</li>
+              <li>Tecidos egípcios e italianos</li>
+              <li>Monograma incluso</li>
+            </ul>
           </div>
         </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card text-center service-card h-100">
-            <i class="bi bi-person-lines-fill service-icon"></i>
-            <h5>Consultoria de Estilo</h5>
-            <p>Aconselhamento personalizado para escolher o melhor modelo, tecido e estilo que combine 
-               com sua personalidade e necessidades.</p>
+        
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+               alt="Reformas e ajustes" 
+               class="card-image">
+          <div class="card-content">
+            <h3 class="card-title">Reformas & Ajustes</h3>
+            <p>Serviço especializado de ajuste, reforma e revitalização de peças existentes.</p>
+            <ul style="padding-left: 1.25rem; margin-top: auto; color: var(--cinza-medio);">
+              <li>Ajuste preciso</li>
+              <li>Conservação de tecidos</li>
+              <li>Modernização de peças</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Localização -->
-  <section class="py-5" id="localizacao">
+  <!-- Processo -->
+  <section class="section bg-roxo-suave" id="processo">
     <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Nossa Loja</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="100">
-          <p class="lead mb-4">
-            Estamos localizados no coração da cidade, oferecendo uma experiência exclusiva de 
-            alfaiataria sob medida para clientes que buscam excelência e sofisticação.
-          </p>
-          <div class="row text-start justify-content-center">
-            <div class="col-md-8">
-              <div class="mb-3">
-                <h6><i class="bi bi-geo-alt-fill me-2 text-roxo"></i> Endereço</h6>
-                <p class="mb-0">Rua das Acácias, 123 - Centro, Cidade XYZ, Estado ABC, 00000-000</p>
-              </div>
-              <div class="mb-3">
-                <h6><i class="bi bi-telephone-fill me-2 text-roxo"></i> Telefone</h6>
-                <p class="mb-0">(11) 1234-5678</p>
-              </div>
-              <div class="mb-3">
-                <h6><i class="bi bi-envelope-fill me-2 text-roxo"></i> E-mail</h6>
-                <p class="mb-0"><a href="mailto:contato@delmiroesilva.com" class="text-decoration-none">contato@delmiroesilva.com</a></p>
-              </div>
-              <div class="mb-3">
-                <h6><i class="bi bi-clock-fill me-2 text-roxo"></i> Horário de Funcionamento</h6>
-                <p class="mb-0">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2>O Processo da Excelência</h2>
+        <p class="lead" style="max-width: 600px; margin: 0 auto;">Da primeira consulta à entrega final, cada etapa é cuidadosamente planejada.</p>
+      </div>
+      
+      <div class="process">
+        <div class="grid grid-3 gap-4">
+          <div class="step" data-aos="fade-up">
+            <div class="step-number">1</div>
+            <h3>Consulta Personalizada</h3>
+            <p>Conversamos sobre suas necessidades, estilo pessoal e ocasião. Apresentamos tecidos e modelos para criar a peça ideal.</p>
+          </div>
+          
+          <div class="step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">2</div>
+            <h3>Medição Precision</h3>
+            <p>Realizamos mais de 40 medições corporais para garantir o ajuste perfeito em cada ponto de contato.</p>
+          </div>
+          
+          <div class="step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">3</div>
+            <h3>Prova e Ajustes</h3>
+            <p>Antes da finalização, realizamos uma prova com a peça em andamento para ajustes milimétricos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2>O Que Nossos Clientes Dizem</h2>
+      </div>
+      
+      <div class="grid grid-2 gap-4">
+        <div class="testimonial" data-aos="fade-right">
+          <div class="testimonial-content">
+            <p>"Meu terno para o casamento foi perfeito. O ajuste, o conforto e os detalhes artesanais fizeram toda a diferença. Recebi inúmeros elogios!"</p>
+            <div class="testimonial-author">
+              <div>
+                <strong>Ricardo Mendes</strong>
+                <div style="color: var(--cinza-medio); font-size: 0.875rem; opacity: 0.8;">CEO, TechSolutions</div>
               </div>
             </div>
           </div>
         </div>
+        
+        <div class="testimonial" data-aos="fade-left">
+          <div class="testimonial-content">
+            <p>"Como executivo que viaja constantemente, preciso de roupas que combinem conforto e elegância. As camisas sob medida da Delmiro & Silva são impecáveis."</p>
+            <div class="testimonial-author">
+              <div>
+                <strong>Fernando Costa</strong>
+                <div style="color: var(--cinza-medio); font-size: 0.875rem; opacity: 0.8;">Diretor Financeiro</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background: linear-gradient(135deg, var(--roxo-principal), var(--roxo-secundario)); color: var(--branco);">
+    <div class="container">
+      <div class="text-center" data-aos="fade-up">
+        <h2 style="color: var(--branco);">Pronto para Experimentar a Verdadeira Alfaiataria?</h2>
+        <p class="lead" style="color: rgba(255, 255, 255, 0.95); max-width: 600px; margin: var(--spacing-md) auto var(--spacing-lg);">
+          Agende uma consulta gratuita e descubra como a alfaiataria sob medida pode transformar seu guarda-roupa.
+        </p>
+        <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20na%20Delmiro%20%26%20Silva" 
+           class="btn" 
+           style="background: var(--branco); color: var(--roxo-principal);"
+           target="_blank">
+          <i class="bi bi-whatsapp"></i>
+          Agendar pelo WhatsApp
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Contato -->
-  <section class="bg-light py-5" id="contato">
+  <section class="section bg-light" id="contato">
     <div class="container">
-      <h2 class="text-center section-title w-100 mx-auto" data-aos="fade-up">Fale Conosco</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
-          <form id="contact-form">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="nome" class="form-label">Nome Completo *</label>
-                <input type="text" class="form-control" id="nome" required>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="telefone">
+      <div class="grid grid-2 gap-5 align-center">
+        <div data-aos="fade-right">
+          <h2>Entre em Contato</h2>
+          <p class="lead">Estamos à disposição para transformar sua visão em realidade.</p>
+          
+          <div class="mt-4">
+            <div class="d-flex align-center gap-2 mb-3">
+              <i class="bi bi-geo-alt-fill text-roxo" style="font-size: 1.25rem;"></i>
+              <div>
+                <strong>Endereço</strong>
+                <div style="color: var(--cinza-medio);">Rua das Acácias, 123 - Jardins<br>São Paulo - SP, 01414-001</div>
               </div>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">E-mail *</label>
-              <input type="email" class="form-control" id="email" required>
+            
+            <div class="d-flex align-center gap-2 mb-3">
+              <i class="bi bi-telephone-fill text-roxo" style="font-size: 1.25rem;"></i>
+              <div>
+                <strong>Telefone</strong>
+                <div style="color: var(--cinza-medio);">(11) 1234-5678</div>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="assunto" class="form-label">Assunto</label>
-              <select class="form-control" id="assunto">
-                <option value="">Selecione um assunto</option>
-                <option value="consulta">Consulta para roupa sob medida</option>
-                <option value="orcamento">Orçamento</option>
-                <option value="ajustes">Serviço de ajustes</option>
-                <option value="duvida">Dúvida</option>
-                <option value="outro">Outro</option>
+            
+            <div class="d-flex align-center gap-2 mb-3">
+              <i class="bi bi-envelope-fill text-roxo" style="font-size: 1.25rem;"></i>
+              <div>
+                <strong>E-mail</strong>
+                <div style="color: var(--cinza-medio);">contato@delmiroesilva.com</div>
+              </div>
+            </div>
+            
+            <div class="d-flex align-center gap-2">
+              <i class="bi bi-clock-fill text-roxo" style="font-size: 1.25rem;"></i>
+              <div>
+                <strong>Horário</strong>
+                <div style="color: var(--cinza-medio);">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left">
+          <form id="contactForm" class="card" style="padding: var(--spacing-md); border: none;">
+            <div class="form-group">
+              <label for="name" class="form-label">Nome Completo *</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="grid grid-2 gap-3">
+              <div class="form-group">
+                <label for="email" class="form-label">E-mail *</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone" class="form-label">Telefone</label>
+                <input type="tel" id="phone" class="form-control">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="service" class="form-label">Serviço de Interesse</label>
+              <select id="service" class="form-control">
+                <option value="">Selecione...</option>
+                <option value="terno">Terno Sob Medida</option>
+                <option value="camisa">Camisa Personalizada</option>
+                <option value="ajuste">Reforma/Ajuste</option>
+                <option value="consultoria">Consultoria de Estilo</option>
               </select>
             </div>
-            <div class="mb-3">
-              <label for="mensagem" class="form-label">Mensagem *</label>
-              <textarea class="form-control" id="mensagem" rows="4" required></textarea>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Mensagem *</label>
+              <textarea id="message" class="form-control" required></textarea>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="newsletter">
-              <label class="form-check-label" for="newsletter">
-                Desejo receber novidades e promoções por e-mail
-              </label>
-            </div>
-            <button type="submit" class="btn btn-roxo w-100">Enviar Mensagem</button>
+            
+            <button type="submit" class="btn btn-primary w-100">
+              <span class="btn-text">Enviar Mensagem</span>
+              <span class="spinner d-none"></span>
+            </button>
           </form>
         </div>
       </div>
@@ -768,95 +1299,155 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center">
+  <footer class="footer">
     <div class="container">
-      <p class="mb-2">&copy; 2025 Delmiro & Silva. Todos os direitos reservados.</p>
-      <p class="small mb-0">Desenvolvido com paixão pela tradição da alfaiataria</p>
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-title">Delmiro & Silva</h3>
+          <p style="color: var(--roxo-claro);">Alfaiataria sob medida com tradição e excelência desde 1985.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" aria-label="Instagram" style="color: var(--roxo-claro);">
+              <i class="bi bi-instagram" style="font-size: 1.25rem;"></i>
+            </a>
+            <a href="#" aria-label="Facebook" style="color: var(--roxo-claro);">
+              <i class="bi bi-facebook" style="font-size: 1.25rem;"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn" style="color: var(--roxo-claro);">
+              <i class="bi bi-linkedin" style="font-size: 1.25rem;"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Serviços</h3>
+          <ul class="footer-links">
+            <li><a href="#servicos">Ternos Sob Medida</a></li>
+            <li><a href="#servicos">Camisas Personalizadas</a></li>
+            <li><a href="#servicos">Reformas e Ajustes</a></li>
+            <li><a href="#servicos">Consultoria de Estilo</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Empresa</h3>
+          <ul class="footer-links">
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#processo">Nosso Processo</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="footer-title">Newsletter</h3>
+          <p style="color: var(--roxo-claro); margin-bottom: var(--spacing-sm);">
+            Receba novidades sobre tecidos, tendências e promoções exclusivas.
+          </p>
+          <div class="d-flex">
+            <input type="email" class="form-control" placeholder="Seu e-mail" style="border-radius: var(--radius-md) 0 0 var(--radius-md); border: 1px solid rgba(211, 188, 231, 0.3); background: rgba(255,255,255,0.1); color: white;">
+            <button class="btn" style="background: var(--roxo-principal); color: var(--branco); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 0 1rem;">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2024 Delmiro & Silva Alfaiataria. Todos os direitos reservados.</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem; color: rgba(255, 255, 255, 0.5);">CNPJ: 12.345.678/0001-90</p>
+      </div>
     </div>
   </footer>
 
   <!-- WhatsApp Button -->
-  <a href="" 
-     class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" />
+  <a href="https://wa.me/551112345678?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta%20na%20Delmiro%20%26%20Silva" 
+     class="whatsapp-btn" 
+     target="_blank" 
+     aria-label="Conversar no WhatsApp"
+     title="Fale conosco no WhatsApp">
+    <i class="bi bi-whatsapp"></i>
   </a>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Inicializar AOS
+    // Initialize AOS
     AOS.init({
       duration: 800,
       offset: 100,
-      once: true
+      once: true,
+      disable: window.innerWidth < 768
     });
 
     // Navbar scroll effect
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
       const navbar = document.querySelector('.navbar');
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
+      
+      updateActiveNavLink();
     });
+
+    // Mobile navigation toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+      });
+      
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
     // Form submission
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Simulação de envio
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      
-      submitBtn.textContent = 'Enviando...';
-      submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-        form.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
-    });
-
-    // Smooth scroll para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const spinner = submitBtn.querySelector('.spinner');
         
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-          
-          // Fechar navbar mobile após clicar em um link
-          const navbarCollapse = document.querySelector('.navbar-collapse');
-          if (navbarCollapse.classList.contains('show')) {
-            const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-            bsCollapse.hide();
-          }
-        }
+        btnText.textContent = 'Enviando...';
+        spinner.classList.remove('d-none');
+        submitBtn.disabled = true;
+        
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        contactForm.reset();
+        
+        btnText.textContent = 'Enviar Mensagem';
+        spinner.classList.add('d-none');
+        submitBtn.disabled = false;
       });
-    });
+    }
 
-    // Ativar item ativo na navbar
-    window.addEventListener('scroll', function() {
+    // Update active nav link on scroll
+    function updateActiveNavLink() {
       const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      const navLinks = document.querySelectorAll('.nav-link');
       
       let current = '';
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        if (scrollY >= (sectionTop - 150)) {
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        
+        if (window.scrollY >= (sectionTop - navbarHeight - 100)) {
           current = section.getAttribute('id');
         }
       });
@@ -867,26 +1458,62 @@
           link.classList.add('active');
         }
       });
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
 
-    // Lazy loading para imagens
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = document.querySelectorAll('img[loading="lazy"]');
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      updateActiveNavLink();
       
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src || img.src;
-            img.classList.remove('img-loading');
-            observer.unobserve(img);
-          }
-        });
-      });
-      
-      images.forEach(img => {
-        img.classList.add('img-loading');
-        imageObserver.observe(img);
+      const heroTitle = document.querySelector('.hero h1');
+      if (heroTitle) {
+        setTimeout(() => {
+          heroTitle.classList.add('animate-fadeInUp');
+        }, 300);
+      }
+    });
+
+    // Handle image loading errors
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', function() {
+        this.style.display = 'none';
+        const parent = this.parentElement;
+        if (parent && !parent.querySelector('.img-fallback')) {
+          const fallback = document.createElement('div');
+          fallback.className = 'img-fallback';
+          fallback.style.cssText = `
+            width: 100%;
+            height: 240px;
+            background: var(--roxo-suave);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--roxo-claro);
+            border-radius: var(--radius-lg);
+          `;
+          fallback.innerHTML = `<i class="bi bi-image" style="font-size: 3rem;"></i>`;
+          parent.appendChild(fallback);
+        }
       });
     });
   </script>
