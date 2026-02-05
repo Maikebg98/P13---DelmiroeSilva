@@ -5,389 +5,889 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Alfaiataria sob medida em estilo clássico para homens exigentes. Agende seu atendimento com Delmiro & Silva.">
   <title>Delmiro & Silva | Alfaiataria Sob Medida</title>
+  
+  <!-- Preconnect para otimização de performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- AOS (Animate on Scroll) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Estilos Customizados -->
   <style>
+    :root {
+      --roxo-principal: #8a4baf;
+      --roxo-secundario: #a67edb;
+      --roxo-claro: #d3bce7;
+      --cinza-escuro: #1e1e1e;
+      --cinza-medio: #333;
+      --cinza-claro: #f8f9fa;
+      --branco: #ffffff;
+      --sombra: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #fdfbff;
-        color: #333;
-        margin: 0;
-        padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfbff;
+      color: var(--cinza-medio);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* Navbar */
     .navbar {
-        background-color: #1e1e1e;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        transition: background-color 0.3s ease;
-        padding: 1rem 0; /* Aumenta o padding superior e inferior */
+      background-color: var(--cinza-escuro);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      padding: 1rem 0;
+      transition: all 0.4s ease;
     }
-    .navbar-nav {
-        display: flex;
-        gap: 20px;
+
+    .navbar.scrolled {
+      padding: 0.6rem 0;
+      background-color: rgba(30, 30, 30, 0.95);
+      backdrop-filter: blur(10px);
     }
+
     .navbar-brand {
-        font-weight: bold;
-        color: #d3bce7 !important;
+      font-weight: 700;
+      color: var(--roxo-claro) !important;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
     }
+
     .navbar-nav .nav-link {
-        color: white !important;
-        padding: 10px 15px;
+      color: var(--branco) !important;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      margin: 0 0.2rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      position: relative;
     }
-    .navbar-nav .nav-link:hover {
-        color: #d3bce7 !important;
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--roxo-claro) !important;
+      background-color: rgba(211, 188, 231, 0.1);
     }
-    /* Estilo do botão toggle */
+
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--roxo-claro);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 70%;
+    }
+
     .navbar-toggler {
-        border: none;
-        background: none;
-        padding: 0.25rem 1.25rem; /* Aumenta o padding lateral */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 24px;
-        width: 30px;
-        margin-left: 20px; /* Aumenta a margem lateral esquerda */
-        cursor: pointer;
+      border: none;
+      padding: 0.5rem;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
     }
-    .navbar-toggler span {
-        display: block;
-        height: 3px;
-        width: 20px;
-        background-color: white; /* Cor dos traços */
-        border-radius: 2px;
-        transition: 0.3s ease;
-    }
-    /* Transformação do toggle para "X" quando clicado */
+
     .navbar-toggler:focus {
-        outline: none;
-    }
-    .navbar-toggler:checked span:nth-child(1) {
-        transform: rotate(45deg);
-        position: relative;
-        top: 5px;
-    }
-    .navbar-toggler:checked span:nth-child(2) {
-        opacity: 0;
-    }
-    .navbar-toggler:checked span:nth-child(3) {
-        transform: rotate(-45deg);
-        position: relative;
-        top: -5px;
+      box-shadow: 0 0 0 2px rgba(211, 188, 231, 0.3);
     }
 
+    .navbar-toggler span {
+      display: block;
+      height: 2px;
+      width: 25px;
+      background-color: var(--branco);
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Hero Section */
     .hero {
-        background: url('images/hero-bg.jpg') center/cover no-repeat;
-        height: 100vh;
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        background-color: rgba(0, 0, 0, 0.4); /* Adicionando a cor escura diretamente no fundo */
-    }
-    .hero h1, .hero p {
-        z-index: 2;
-        position: relative;
-    }
-    .hero a {
-        z-index: 3; /* Garantir que o botão tenha o maior z-index */
-        position: relative;
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('images/hero-bg.jpg') center/cover no-repeat;
+      color: var(--branco);
+      overflow: hidden;
     }
 
-    .btn-roxo {
-        background: linear-gradient(45deg, #d3bce7, #a67edb);
-        color: #FFF;
-        border: none;
-        border-radius: 50px;
-        padding: 12px 30px;
-        font-size: 1.1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        transition: all 0.3s ease;
-        z-index: 100;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    /* Botões */
+    .btn-roxo {
+      background: linear-gradient(45deg, var(--roxo-principal), var(--roxo-secundario));
+      color: var(--branco);
+      border: none;
+      border-radius: 50px;
+      padding: 0.875rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(166, 126, 219, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-roxo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--roxo-secundario), var(--roxo-principal));
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn-roxo:hover::before {
+      left: 0;
+    }
+
     .btn-roxo:hover {
-        transform: translateY(-3px);
-        background: linear-gradient(45deg, #c5a9e0, #925fd1);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(166, 126, 219, 0.4);
+    }
+
+    /* Seções */
+    section {
+      padding: 5rem 0;
     }
 
     .section-title {
-        color: #a67edb;
+      color: var(--roxo-principal);
+      font-weight: 700;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
     }
 
-    footer {
-        background-color: #1e1e1e;
-        color: white;
-        padding: 20px 0;
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--roxo-principal);
+      border-radius: 2px;
     }
 
-    .whatsapp-float {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25D366;
-        border-radius: 50%;
-        padding: 15px;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    .bg-light {
+      background-color: var(--cinza-claro) !important;
     }
 
-    .card {
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-    }
-    .card:hover, .btn-roxo:hover {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .bi {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-    }
+    /* Cards e Steps */
     .card, .step {
-        background-color: #ffffff;
-        border-radius: 15px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      background: var(--branco);
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px var(--sombra);
+      transition: all 0.3s ease;
+      height: 100%;
+      padding: 2rem;
     }
 
-    .form-control, .btn-roxo {
-        border-radius: 10px;
+    .card:hover, .step:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
 
-    .step {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
     .step h4 {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+      color: var(--roxo-principal);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: var(--roxo-claro);
+      color: var(--roxo-principal);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Serviços */
+    .service-icon {
+      font-size: 3rem;
+      color: var(--roxo-principal);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+      color: var(--roxo-secundario);
+    }
+
+    /* Formulário */
+    .form-control {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 0.875rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--roxo-claro);
+      box-shadow: 0 0 0 0.25rem rgba(166, 126, 219, 0.25);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--cinza-escuro);
+      color: var(--branco);
+      padding: 2.5rem 0;
+    }
+
+    footer p {
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      animation: none;
+    }
+
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+      }
+    }
+
+    /* Imagens */
+    .img-fluid {
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
+
+    .img-fluid:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Responsividade */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      section {
+        padding: 4rem 0;
+      }
     }
 
     @media (max-width: 768px) {
-        .navbar-nav {
-            justify-content: flex-start; /* Alinha os itens à esquerda */
-            width: 100%; /* Garante que ocupe a largura total */
-            padding-left: 15px; /* Adiciona espaçamento à esquerda */
-        }
+      .hero {
+        min-height: 500px;
+        height: 80vh;
+      }
 
-        .hero h1 {
-            font-size: 2rem;
-        }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
 
-        .hero p {
-            font-size: 1.1rem;
-        }
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .navbar-nav {
+        padding-top: 1rem;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 0.75rem 0;
+        margin: 0.2rem 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+      }
     }
 
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .btn-roxo {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .step, .card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Animações de entrada */
+    [data-aos] {
+      pointer-events: none;
+    }
+
+    [data-aos].aos-animate {
+      pointer-events: auto;
+    }
+
+    /* Loader para imagens */
+    .img-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
   </style>
 </head>
 <body>
 
-    <!-- Navbar HTML -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Delmiro & Silva</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="#home">Home</a>
-                    <a class="nav-link" href="#sobre">Sobre</a>
-                    <a class="nav-link" href="#camisa-sob-medida">Camisa Sob Medida</a>
-                    <a class="nav-link" href="#feito-para-voce">Feito Para Você</a>
-                    <a class="nav-link" href="#servicos">Serviços</a>
-                    <a class="nav-link" href="#localizacao">Localização</a>
-                    <a class="nav-link" href="#contato">Contato</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Delmiro & Silva</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#camisa-sob-medida">Camisa Sob Medida</a></li>
+          <li class="nav-item"><a class="nav-link" href="#feito-para-voce">Feito Para Você</a></li>
+          <li class="nav-item"><a class="nav-link" href="#passo-a-passo">Processo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+          <li class="nav-item"><a class="nav-link" href="#localizacao">Localização</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="container" data-aos="fade-up">
-      <h1>Elegância sob medida</h1>
-      <p>Roupas feitas à mão para homens de bom gosto.</p>
-      <a href="#contato" class="btn btn-roxo mt-3">Agende um atendimento</a>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Elegância Sob Medida</h1>
+      <p class="lead">Roupas feitas à mão para homens que valorizam qualidade, conforto e estilo único.</p>
+      <a href="#contato" class="btn btn-roxo mt-3">Agende um Atendimento</a>
     </div>
   </section>
 
+  <!-- Sobre Nós -->
   <section class="bg-light py-5" id="sobre">
-    <div class="container" data-aos="fade-right">
-      <h2 class="text-center section-title mb-4">Sobre Nós</h2>
-      
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Sobre Nós</h2>
       <div class="row align-items-center">
-        <div class="col-md-6 my-4">
-          <img src="images/alfaiate.jpg" class="img-fluid rounded shadow" alt="Alfaiate experiente costurando terno sob medida">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+          <img src="images/alfaiate.jpg" class="img-fluid" alt="Alfaiate experiente costurando terno sob medida" 
+               loading="lazy">
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
           <h3 class="mb-4">Alfaiataria com Elegância e Tradição</h3>
-          <p>
-            Com mais de 20 anos de tradição, a Delmiro & Silva é referência em alfaiataria personalizada. Unimos elegância, conforto e qualidade em cada peça feita sob medida.
+          <p class="mb-4">
+            Com mais de 20 anos de tradição, a <strong>Delmiro & Silva</strong> é referência em alfaiataria personalizada. 
+            Unimos elegância, conforto e qualidade em cada peça feita sob medida, garantindo perfeição em cada detalhe.
           </p>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <span>Atendimento Personalizado</span>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <span>Tecidos de Alta Qualidade</span>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <span>Acabamento Impecável</span>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-center">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <span>Garantia de Satisfação</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-light py-5" id="camisa-sob-medida">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center section-title mb-4">Camisa Sob Medida</h2>
+  <!-- Camisa Sob Medida -->
+  <section class="py-5" id="camisa-sob-medida">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Camisa Sob Medida</h2>
       <div class="row align-items-center">
-        <div class="col-md-6">
-          <h3>Sua peça com estilo único</h3>
-          <p>Camisas e ternos sob medida com ajuste perfeito, tecidos de alta qualidade e opções personalizadas para seu conforto e elegância. Escolha o modelo, o tecido e os detalhes como colarinho, punhos e botões.</p>
-          <a href="#contato" class="btn btn-roxo mt-3">Agende uma consulta</a>
+        <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0" data-aos="fade-left">
+          <img src="images/sob-medida3.jpg" class="img-fluid" alt="Camisa Sob Medida" loading="lazy">
         </div>
-        <div class="col-md-6 my-4">
-          <img src="images/sob-medida3.jpg" class="img-fluid rounded shadow" alt="Camisa Sob Medida">
+        <div class="col-lg-6 order-lg-0" data-aos="fade-right">
+          <h3 class="mb-4">Sua Peça com Estilo Único</h3>
+          <p class="mb-4">
+            Camisas e ternos sob medida com ajuste perfeito, utilizando os melhores tecidos do mercado. 
+            Personalize cada detalhe: colarinho, punhos, botões e muito mais.
+          </p>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> Mais de 200 tecidos premium</li>
+            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> 15 modelos de colarinho</li>
+            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> Botões personalizados</li>
+            <li class="mb-2"><i class="bi bi-check me-2 text-success"></i> Monograma gratuito</li>
+          </ul>
+          <a href="#contato" class="btn btn-roxo">Agende uma Consulta</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5" id="feito-para-voce">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center section-title mb-4">Feito Para Você</h2>
+  <!-- Feito Para Você -->
+  <section class="bg-light py-5" id="feito-para-voce">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Feito Para Você</h2>
       <div class="row align-items-center">
-        <div class="col-md-6 my-4">
-          <img src="images/feito-pra-voce.jpg" class="img-fluid rounded shadow " alt="Roupa feita sob medida">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+          <img src="images/feito-pra-voce.jpg" class="img-fluid" alt="Roupa feita sob medida" loading="lazy">
         </div>
-        <div class="col-md-6">
-          <h3>Seu estilo, nossa prioridade</h3>
-          <p>Cada peça é feita sob medida para você. Nosso compromisso é criar roupas que reflitam sua personalidade. Seja para um evento especial ou para o seu dia a dia, garantimos o melhor ajuste e a mais alta qualidade.</p>
-          <a href="#contato" class="btn btn-roxo mt-3">Agende seu atendimento</a>
+        <div class="col-lg-6" data-aos="fade-left">
+          <h3 class="mb-4">Seu Estilo, Nossa Prioridade</h3>
+          <p class="mb-4">
+            Cada peça é cuidadosamente confeccionada para atender suas necessidades e expressar sua personalidade. 
+            Do esboço inicial ao produto final, garantimos excelência em cada etapa.
+          </p>
+          <div class="row text-center mb-4">
+            <div class="col-4">
+              <div class="display-6 fw-bold text-roxo">100%</div>
+              <small>Sob Medida</small>
+            </div>
+            <div class="col-4">
+              <div class="display-6 fw-bold text-roxo">20+</div>
+              <small>Anos de Experiência</small>
+            </div>
+            <div class="col-4">
+              <div class="display-6 fw-bold text-roxo">5000+</div>
+              <small>Clientes Satisfeitos</small>
+            </div>
+          </div>
+          <a href="#contato" class="btn btn-roxo">Agende seu Atendimento</a>
         </div>
       </div>
     </div>
-  </section>  
+  </section>
 
-  <section class="bg-light py-5" id="passo-a-passo">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center section-title mb-4">Como Funciona o Processo</h2>
+  <!-- Processo -->
+  <section class="py-5" id="passo-a-passo">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Como Funciona</h2>
       <div class="row">
-        <div class="col-md-4 d-flex">
-          <div class="step">
-            <h4 class="text-center">1. Consulta Inicial</h4>
-            <p>Agende uma consulta para discutir suas preferências, tipo de evento e estilo desejado. Vamos ajudá-lo a escolher o tecido e o modelo ideal para você.</p>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="step text-center">
+            <div class="step-number">1</div>
+            <h4>Consulta Inicial</h4>
+            <p>Agende uma consulta para discutir suas preferências, tipo de evento e estilo desejado. 
+               Nossos especialistas irão ajudá-lo a escolher o tecido e modelo ideal.</p>
           </div>
         </div>
-        <div class="col-md-4 d-flex">
-          <div class="step">
-            <h4 class="text-center">2. Medição e Ajustes</h4>
-            <p>Realizamos a medição detalhada do seu corpo para garantir que cada peça se encaixe perfeitamente. Durante essa etapa, podemos discutir qualquer ajuste adicional que você deseje.</p>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="step text-center">
+            <div class="step-number">2</div>
+            <h4>Medição e Ajustes</h4>
+            <p>Realizamos a medição detalhada do seu corpo com mais de 30 medidas para garantir o ajuste perfeito. 
+               Discutimos todos os detalhes personalizados durante esta etapa.</p>
           </div>
         </div>
-        <div class="col-md-4 d-flex">
-          <div class="step">
-            <h4 class="text-center">3. Confecção Personalizada</h4>
-            <p>Após a medição, iniciamos a confecção da sua peça sob medida, com todos os detalhes personalizados, como colarinho, punho e botões.</p>
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="step text-center">
+            <div class="step-number">3</div>
+            <h4>Confeção Personalizada</h4>
+            <p>Após a medição, iniciamos a confeção da sua peça sob medida. 
+               Oferecemos um ajuste de prova antes da finalização para garantir total satisfação.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>  
-
-  <section class="py-5" id="servicos">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center section-title mb-4">Nossos Serviços</h2>
-      <div class="row text-center">
-        <div class="col-md-4 d-flex flex-column align-items-center">
-          <i class="bi bi-suit-club" style="font-size: 2rem; color: #a67edb;"></i>
-          <h5>Trajes Sociais</h5>
-          <p>Costura sob medida para eventos formais e ocasiões especiais.</p>
-        </div>
-        <div class="col-md-4 d-flex flex-column align-items-center">
-          <i class="bi bi-pencil-square" style="font-size: 2rem; color: #a67edb;"></i>
-          <h5>Reformas e Ajustes</h5>
-          <p>Serviço de ajuste e personalização de roupas.</p>
-        </div>
-        <div class="col-md-4 d-flex flex-column align-items-center">
-          <i class="bi bi-person-lines-fill" style="font-size: 2rem; color: #a67edb;"></i>
-          <h5>Consultoria de Estilo</h5>
-          <p>Aconselhamento para escolher o melhor modelo e tecido.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-
-  <section class="bg-light py-5" id="localizacao">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center section-title mb-4">Localização</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-          <p>
-            Estamos localizados no coração da cidade, oferecendo uma experiência exclusiva de alfaiataria sob medida para nossos clientes. 
-            Venha nos visitar e descobrir o nosso atendimento personalizado.
-          </p>
-          <p>
-            <strong>Endereço:</strong> Rua das Acácias, 123 - Centro, Cidade XYZ, Estado ABC, 00000-000
-          </p>
-          <p>
-            <strong>Telefone:</strong> (11) 1234-5678
-          </p>
-          <p>
-            <strong>E-mail:</strong> <a href="mailto:contato@delmiroesilva.com">contato@delmiroesilva.com</a>
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5" id="contato">
-    <div class="container" data-aos="fade-up">
-      <h2 class="text-center section-title mb-4">Fale Conosco</h2>
+  <!-- Serviços -->
+  <section class="bg-light py-5" id="servicos">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Nossos Serviços</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card text-center service-card h-100">
+            <i class="bi bi-suit-club service-icon"></i>
+            <h5>Trajes Sociais</h5>
+            <p>Costura sob medida para eventos formais, casamentos, formaturas e ocasiões especiais. 
+               Perfeição em cada detalhe para sua celebração.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card text-center service-card h-100">
+            <i class="bi bi-pencil-square service-icon"></i>
+            <h5>Reformas e Ajustes</h5>
+            <p>Serviço especializado de ajuste e personalização de roupas. 
+               Renove suas peças favoritas com nosso trabalho de alta qualidade.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card text-center service-card h-100">
+            <i class="bi bi-person-lines-fill service-icon"></i>
+            <h5>Consultoria de Estilo</h5>
+            <p>Aconselhamento personalizado para escolher o melhor modelo, tecido e estilo que combine 
+               com sua personalidade e necessidades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localização -->
+  <section class="py-5" id="localizacao">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Nossa Loja</h2>
       <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-delay="100">
+          <p class="lead mb-4">
+            Estamos localizados no coração da cidade, oferecendo uma experiência exclusiva de 
+            alfaiataria sob medida para clientes que buscam excelência e sofisticação.
+          </p>
+          <div class="row text-start justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-3">
+                <h6><i class="bi bi-geo-alt-fill me-2 text-roxo"></i> Endereço</h6>
+                <p class="mb-0">Rua das Acácias, 123 - Centro, Cidade XYZ, Estado ABC, 00000-000</p>
+              </div>
+              <div class="mb-3">
+                <h6><i class="bi bi-telephone-fill me-2 text-roxo"></i> Telefone</h6>
+                <p class="mb-0">(11) 1234-5678</p>
+              </div>
+              <div class="mb-3">
+                <h6><i class="bi bi-envelope-fill me-2 text-roxo"></i> E-mail</h6>
+                <p class="mb-0"><a href="mailto:contato@delmiroesilva.com" class="text-decoration-none">contato@delmiroesilva.com</a></p>
+              </div>
+              <div class="mb-3">
+                <h6><i class="bi bi-clock-fill me-2 text-roxo"></i> Horário de Funcionamento</h6>
+                <p class="mb-0">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 13h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="bg-light py-5" id="contato">
+    <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Fale Conosco</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
           <form id="contact-form">
-            <div class="mb-3">
-              <label for="nome" class="form-label">Seu nome</label>
-              <input type="text" class="form-control" id="nome" required>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="nome" class="form-label">Nome Completo *</label>
+                <input type="text" class="form-control" id="nome" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="tel" class="form-control" id="telefone">
+              </div>
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label">Seu e-mail</label>
+              <label for="email" class="form-label">E-mail *</label>
               <input type="email" class="form-control" id="email" required>
             </div>
             <div class="mb-3">
-              <label for="mensagem" class="form-label">Mensagem</label>
+              <label for="assunto" class="form-label">Assunto</label>
+              <select class="form-control" id="assunto">
+                <option value="">Selecione um assunto</option>
+                <option value="consulta">Consulta para roupa sob medida</option>
+                <option value="orcamento">Orçamento</option>
+                <option value="ajustes">Serviço de ajustes</option>
+                <option value="duvida">Dúvida</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="mensagem" class="form-label">Mensagem *</label>
               <textarea class="form-control" id="mensagem" rows="4" required></textarea>
             </div>
-            <button type="submit" class="btn btn-roxo w-100">Enviar</button>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="newsletter">
+              <label class="form-check-label" for="newsletter">
+                Desejo receber novidades e promoções por e-mail
+              </label>
+            </div>
+            <button type="submit" class="btn btn-roxo w-100">Enviar Mensagem</button>
           </form>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="text-center">
-    <p>&copy; 2025 Delmiro & Silva. Todos os direitos reservados.</p>
+    <div class="container">
+      <p class="mb-2">&copy; 2025 Delmiro & Silva. Todos os direitos reservados.</p>
+      <p class="small mb-0">Desenvolvido com paixão pela tradição da alfaiataria</p>
+    </div>
   </footer>
 
   <!-- WhatsApp Button -->
-  <a href="https://wa.me/55SEUNUMERO" class="whatsapp-float" target="_blank">
+  <a href="" 
+     class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
     <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" />
   </a>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    AOS.init();
+    // Inicializar AOS
+    AOS.init({
+      duration: 800,
+      offset: 100,
+      once: true
+    });
 
-    const form = document.getElementById("contact-form");
-    form.addEventListener("submit", function (e) {
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Form submission
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("Mensagem enviada com sucesso! Em breve entraremos em contato.");
-      form.reset();
+      
+      // Simulação de envio
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // Fechar navbar mobile após clicar em um link
+          const navbarCollapse = document.querySelector('.navbar-collapse');
+          if (navbarCollapse.classList.contains('show')) {
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+            bsCollapse.hide();
+          }
+        }
+      });
+    });
+
+    // Ativar item ativo na navbar
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 150)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Lazy loading para imagens
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.remove('img-loading');
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      images.forEach(img => {
+        img.classList.add('img-loading');
+        imageObserver.observe(img);
+      });
     });
   </script>
 </body>
