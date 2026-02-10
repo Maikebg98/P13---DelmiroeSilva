@@ -7,6 +7,13 @@
   <meta name="keywords" content="alfaiataria sob medida, terno personalizado, camisa sob medida, alfaiate premium, moda masculina clássica, roupa social sob medida">
   <meta name="author" content="Delmiro & Silva Alfaiataria">
   
+  <!-- Meta tags adicionais para mobile -->
+  <meta name="theme-color" content="#8a4baf">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Delmiro & Silva | Elegância Sob Medida">
   <meta property="og:description" content="Alfaiataria artesanal premium para homens que valorizam excelência e estilo único.">
@@ -132,6 +139,8 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
     }
 
     /* ===== TIPOGRAFIA APERFEIÇOADA ===== */
@@ -194,6 +203,7 @@
       max-width: var(--container-xl);
       margin: 0 auto;
       padding: 0 var(--spacing-md);
+      min-width: 320px; /* Largura mínima suportada */
     }
 
     @media (max-width: 1200px) {
@@ -218,6 +228,8 @@
     @media (max-width: 768px) {
       .section {
         padding: var(--spacing-lg) 0;
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
       }
     }
 
@@ -265,12 +277,13 @@
       .grid-3,
       .grid-4 {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
       }
     }
 
     /* ===== COMPONENTES REVISADOS ===== */
 
-    /* 1. NAVBAR ELEGANTE */
+    /* 1. NAVBAR ELEGANTE - ALINHAMENTO CORRIGIDO */
     .navbar {
       position: fixed;
       top: 0;
@@ -281,6 +294,7 @@
       border-bottom: 1px solid rgba(138, 75, 175, 0.1);
       z-index: 1000;
       transition: all var(--transition);
+      width: 100%;
     }
 
     .navbar.scrolled {
@@ -288,14 +302,35 @@
       box-shadow: 0 4px 20px rgba(138, 75, 175, 0.1);
     }
 
+    /* NAVBAR CONTAINER ALINHADO COM O CONTAINER PRINCIPAL */
     .navbar-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 0;
       max-width: var(--container-xl);
       margin: 0 auto;
       padding: 1.25rem var(--spacing-md);
+      width: 100%;
+    }
+
+    @media (max-width: 1200px) {
+      .navbar-container {
+        max-width: var(--container-lg);
+        padding: 1.25rem var(--spacing-sm);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .navbar-container {
+        padding: 1rem var(--spacing-sm);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-container {
+        max-width: var(--container-sm);
+        padding: 0.875rem var(--spacing-sm);
+      }
     }
 
     .logo {
@@ -308,12 +343,28 @@
       align-items: center;
       gap: var(--spacing-xs);
       letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.5rem;
+      }
     }
 
     .nav-menu {
       display: flex;
       gap: var(--spacing-md);
       list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .nav-menu {
+        gap: var(--spacing-sm);
+      }
     }
 
     .nav-link {
@@ -325,6 +376,19 @@
       transition: all var(--transition);
       border-radius: var(--radius-sm);
       font-size: 0.95rem;
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1100px) {
+      .nav-link {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.9rem;
+      }
     }
 
     .nav-link::after {
@@ -351,6 +415,21 @@
       left: 50%;
     }
 
+    /* Botão Agendar Consulta dentro do menu */
+    .nav-menu .btn-outline {
+      padding: 0.5rem 1.5rem !important;
+      margin-left: var(--spacing-xs);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1100px) {
+      .nav-menu .btn-outline {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.9rem;
+      }
+    }
+
     .nav-toggle {
       display: none;
       background: none;
@@ -359,6 +438,10 @@
       padding: 0.5rem;
       flex-direction: column;
       gap: 4px;
+      min-height: 44px;
+      min-width: 44px;
+      align-items: center;
+      justify-content: center;
     }
 
     .nav-toggle span {
@@ -370,7 +453,7 @@
       border-radius: 2px;
     }
 
-    /* 2. HERO IMPACTANTE */
+    /* 2. HERO IMPACTANTE - ALINHADO COM NAVBAR */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -380,6 +463,38 @@
       color: var(--branco);
       padding: 6rem var(--spacing-md) var(--spacing-xl);
       position: relative;
+      background-attachment: scroll;
+      margin-top: 0;
+    }
+
+    /* Ajuste do padding-top para compensar a navbar fixa */
+    .hero {
+      padding-top: calc(6rem + 80px); /* Ajuste baseado na altura da navbar */
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        background: linear-gradient(135deg, rgba(138, 75, 175, 0.9), rgba(166, 126, 219, 0.8)), 
+                    url('https://images.unsplash.com/photo-1598808503746-f34c53b9323b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=70') center/cover no-repeat;
+        padding: 5rem var(--spacing-sm) var(--spacing-lg);
+        min-height: 80vh;
+        padding-top: calc(5rem + 70px); /* Ajuste mobile */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        min-height: 70vh;
+        padding: 4rem var(--spacing-sm) var(--spacing-lg);
+        padding-top: calc(4rem + 60px); /* Ajuste mobile pequeno */
+      }
+    }
+
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: 120vh;
+        padding-top: calc(4rem + 60px);
+      }
     }
 
     .hero-content {
@@ -390,12 +505,31 @@
       z-index: 2;
     }
 
+    @media (max-width: 480px) {
+      .hero-content {
+        padding: 0 var(--spacing-xs);
+      }
+    }
+
     .hero h1 {
       color: var(--branco);
       font-size: clamp(2.75rem, 6vw, 4rem);
       margin-bottom: var(--spacing-md);
       line-height: 1.1;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+      }
     }
 
     .hero .lead {
@@ -406,6 +540,20 @@
       margin-left: auto;
       margin-right: auto;
       font-weight: 300;
+    }
+
+    @media (max-width: 768px) {
+      .hero .lead {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero .lead,
+      p, .lead {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
     }
 
     /* 3. BOTÕES APERFEIÇOADOS */
@@ -426,6 +574,23 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    @media (max-width: 992px) {
+      .btn {
+        padding: 0.875rem 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 0.875rem 1.5rem;
+      }
     }
 
     .btn-primary {
@@ -479,6 +644,7 @@
       display: flex;
       flex-direction: column;
       border: 1px solid rgba(138, 75, 175, 0.1);
+      position: relative;
     }
 
     .card:hover {
@@ -496,11 +662,30 @@
       background: linear-gradient(to right, var(--roxo-principal), var(--roxo-secundario));
     }
 
+    @media (max-width: 768px) {
+      .card {
+        margin-bottom: var(--spacing-md);
+      }
+    }
+
+    /* Garantir que imagens sejam sempre responsivas */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .card-image {
       width: 100%;
       height: 240px;
       object-fit: cover;
       transition: transform var(--transition-slow);
+    }
+
+    @media (max-width: 768px) {
+      .card-image {
+        height: 200px;
+      }
     }
 
     .card:hover .card-image {
@@ -536,11 +721,24 @@
       z-index: 0;
     }
 
+    @media (max-width: 768px) {
+      .process::before {
+        display: none;
+      }
+    }
+
     .step {
       position: relative;
       text-align: center;
       padding: 0 var(--spacing-sm);
       z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .step {
+        padding: 0;
+        margin-bottom: var(--spacing-lg);
+      }
     }
 
     .step-number {
@@ -560,6 +758,22 @@
       z-index: 2;
     }
 
+    @media (max-width: 768px) {
+      .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-sm);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .process .grid.grid-3 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+    }
+
     /* 6. DEPOIMENTOS REFINADOS */
     .testimonial {
       background: var(--branco);
@@ -568,6 +782,12 @@
       position: relative;
       border: 1px solid rgba(138, 75, 175, 0.1);
       box-shadow: 0 8px 25px rgba(138, 75, 175, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .testimonial {
+        padding: var(--spacing-md);
+      }
     }
 
     .testimonial::before {
@@ -604,6 +824,13 @@
       border: 2px solid var(--roxo-claro);
     }
 
+    @media (max-width: 768px) {
+      #depoimentos .grid.grid-2 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+      }
+    }
+
     /* 7. FORMULÁRIO PROFISSIONAL */
     .form-group {
       margin-bottom: var(--spacing-md);
@@ -626,6 +853,13 @@
       transition: all var(--transition);
       background: var(--branco);
       color: var(--cinza-medio);
+    }
+
+    @media (max-width: 768px) {
+      .form-control {
+        padding: 0.875rem;
+        font-size: 16px; /* Prevenir zoom automático no iOS */
+      }
     }
 
     .form-control:focus {
@@ -653,15 +887,17 @@
       margin-bottom: var(--spacing-xl);
     }
 
-    @media (max-width: 992px) {
+    @media (min-width: 769px) and (max-width: 992px) {
       .footer-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
       }
     }
 
     @media (max-width: 768px) {
       .footer-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-md);
       }
     }
 
@@ -708,6 +944,13 @@
 
     @media (max-width: 768px) {
       .stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-md);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stats {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
       }
@@ -724,6 +967,12 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    @media (max-width: 480px) {
+      .stat-number {
+        font-size: 2.5rem;
+      }
     }
 
     .stat-label {
@@ -752,6 +1001,8 @@
       transition: all var(--transition);
       z-index: 999;
       animation: pulse-whatsapp 2s infinite;
+      min-height: 44px;
+      min-width: 44px;
     }
 
     .whatsapp-btn:hover {
@@ -762,6 +1013,26 @@
 
     .whatsapp-btn i {
       font-size: 1.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .whatsapp-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .whatsapp-btn {
+        bottom: 1rem;
+        right: 1rem;
+        width: 56px;
+        height: 56px;
+      }
+      
+      .whatsapp-btn i {
+        font-size: 1.5rem;
+      }
     }
 
     @keyframes pulse-whatsapp {
@@ -784,7 +1055,7 @@
 
       .nav-menu {
         position: fixed;
-        top: 72px;
+        top: 70px;
         left: 0;
         right: 0;
         background: rgba(255, 255, 255, 0.98);
@@ -797,12 +1068,32 @@
         visibility: hidden;
         transition: all var(--transition);
         border-bottom: 1px solid rgba(138, 75, 175, 0.1);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        align-items: stretch;
       }
 
       .nav-menu.active {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
+      }
+
+      .nav-menu li {
+        width: 100%;
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-menu .btn-outline {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: var(--spacing-xs);
       }
 
       .nav-toggle.active span:nth-child(1) {
@@ -816,74 +1107,72 @@
       .nav-toggle.active span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
       }
+    }
 
-      .hero {
-        padding-top: 5rem;
-        min-height: 80vh;
-      }
+    /* Ajustes para seção de contato */
+    #contato .grid.grid-2 {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
 
-      .btn {
-        padding: 0.875rem 2rem;
-      }
-
-      .process::before {
-        display: none;
+    @media (min-width: 992px) {
+      #contato .grid.grid-2 {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 768px) {
-      .section {
-        padding: var(--spacing-lg) 0;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero .lead {
-        font-size: 1.25rem;
-      }
-
-      .whatsapp-btn {
-        bottom: 1rem;
-        right: 1rem;
-        width: 56px;
-        height: 56px;
-      }
-
-      .step {
-        margin-bottom: var(--spacing-lg);
-      }
-
-      .step-number {
-        width: 60px;
-        height: 60px;
-        font-size: 1.25rem;
+      #contato .grid.grid-2 .grid.grid-2 {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
       }
     }
 
+    /* Ajustar botões no hero em mobile */
     @media (max-width: 480px) {
-      .container {
-        padding: 0 var(--spacing-sm);
-      }
-
-      .hero {
-        padding: 4rem var(--spacing-sm) var(--spacing-lg);
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .grid-2,
-      .grid-3,
-      .grid-4 {
+      .d-flex.gap-2.justify-center.flex-wrap {
+        flex-direction: column;
         gap: var(--spacing-sm);
+      }
+    }
+
+    /* Newsletter no footer mobile */
+    @media (max-width: 768px) {
+      .footer .d-flex {
+        flex-direction: column;
+      }
+      
+      .footer .d-flex input.form-control {
+        border-radius: var(--radius-md);
+        margin-bottom: var(--spacing-xs);
+      }
+      
+      .footer .d-flex button.btn {
+        border-radius: var(--radius-md);
+        width: 100%;
+        padding: 0.75rem;
+      }
+    }
+
+    /* Otimizações específicas para dispositivos touch */
+    @media (hover: none) and (pointer: coarse) {
+      .btn, .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+      }
+    }
+
+    /* Garantir que tabelas sejam responsivas */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    @media (max-width: 768px) {
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
       }
     }
 
@@ -1009,25 +1298,27 @@
         <li><a href="#processo" class="nav-link">Processo</a></li>
         <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
         <li><a href="#contato" class="nav-link">Contato</a></li>
-        <li><a href="#agendar" class="btn btn-outline" style="padding: 0.5rem 1.5rem;">Agendar Consulta</a></li>
+        <li><a href="#agendar" class="btn btn-outline">Agendar Consulta</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-content" data-aos="fade-up">
-      <h1 class="animate-fadeInUp">Excelência Artesanal em Cada Medida</h1>
-      <p class="lead">Alfaiataria sob medida para homens que valorizam conforto, estilo atemporal e perfeição em cada detalhe.</p>
-      <div class="d-flex gap-2 justify-center flex-wrap">
-        <a href="#contato" class="btn btn-primary">
-          <i class="bi bi-calendar-check"></i>
-          Agendar Consulta
-        </a>
-        <a href="#servicos" class="btn btn-outline">
-          <i class="bi bi-scissors"></i>
-          Ver Serviços
-        </a>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="animate-fadeInUp">Excelência Artesanal em Cada Medida</h1>
+        <p class="lead">Alfaiataria sob medida para homens que valorizam conforto, estilo atemporal e perfeição em cada detalhe.</p>
+        <div class="d-flex gap-2 justify-center flex-wrap">
+          <a href="#contato" class="btn btn-primary">
+            <i class="bi bi-calendar-check"></i>
+            Agendar Consulta
+          </a>
+          <a href="#servicos" class="btn btn-outline">
+            <i class="bi bi-scissors"></i>
+            Ver Serviços
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1077,7 +1368,7 @@
       
       <div class="grid grid-3 gap-3">
         <div class="card" data-aos="fade-up" data-aos-delay="100">
-          <img src="images/clangs-suit-2688315_1280.jpg" 
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                alt="Terno social sob medida" 
                class="card-image">
           <div class="card-content">
@@ -1371,12 +1662,24 @@
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
-    // Initialize AOS
+    // Melhor inicialização do AOS para responsividade
     AOS.init({
       duration: 800,
       offset: 100,
       once: true,
-      disable: window.innerWidth < 768
+      disable: function() {
+        return window.innerWidth < 768;
+      },
+      startEvent: 'DOMContentLoaded'
+    });
+
+    // Detectar redimensionamento e recarregar AOS se necessário
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        AOS.refresh();
+      }, 250);
     });
 
     // Navbar scroll effect
@@ -1460,16 +1763,23 @@
       });
     }
 
-    // Smooth scroll for anchor links
+    // Melhorar navegação suave para mobile
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
+          e.preventDefault();
+          
+          // Fechar menu mobile se aberto
+          if (navToggle && navToggle.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+          
           const navbarHeight = document.querySelector('.navbar').offsetHeight;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
           
@@ -1481,16 +1791,31 @@
       });
     });
 
-    // Initialize on load
+    // Executar otimizações no carregamento
     document.addEventListener('DOMContentLoaded', () => {
       updateActiveNavLink();
       
+      // Adicionar classe para detectar mobile
+      if (window.innerWidth < 768) {
+        document.body.classList.add('is-mobile');
+      } else {
+        document.body.classList.remove('is-mobile');
+      }
+      
+      // Inicializar título do hero
       const heroTitle = document.querySelector('.hero h1');
       if (heroTitle) {
         setTimeout(() => {
           heroTitle.classList.add('animate-fadeInUp');
         }, 300);
       }
+    });
+
+    // Detectar mudanças de orientação
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        AOS.refresh();
+      }, 300);
     });
 
     // Handle image loading errors
